@@ -2,9 +2,7 @@ name: test
 on:
   push:
     branches:
-      - master
-    paths:
-      - '**.py'
+      - 'master'
 jobs:
   model-ci:
     runs-on: ubuntu-latest
