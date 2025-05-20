@@ -1,4 +1,4 @@
-name: CI CD Workflow for model
+name: CI CD Conditional Workflow for model
 on:
   push:
     branches:

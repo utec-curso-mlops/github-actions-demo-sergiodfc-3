@@ -1,10 +1,5 @@
 name: CI CD Workflow for model
-on:
-  push:
-    branches:
-      - 'master'
-    paths:
-      - '**.py'
+on: workflow_dispatch
 jobs:
   model-build:
     runs-on: ubuntu-latest
