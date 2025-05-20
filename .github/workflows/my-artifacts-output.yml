@@ -28,6 +28,9 @@ jobs:
       - name: Publish Model Hiperparameters
         run: |
           awk -F "\"*,\"*" '{print $1$2$3$4}' outputs/train/metrics/train_cv_model_results_best_model.csv
+      - name: Publish Model Hiperparameters 2
+        run: |
+          csvtool format '%(1)\n' outputs/train/metrics/train_cv_model_results_best_model.csv
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
