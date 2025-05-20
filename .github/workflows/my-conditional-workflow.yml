@@ -47,12 +47,6 @@ jobs:
             outputs/train/feature_importance.csv
             outputs/train/models/best_model.pickle
 
-      - name: testing
-        run: |
-          cd outputs/train
-          ls
-          cd models
-          ls
       - name: Run Model Test
         id: model-test
         run: python src/5-score-model.py
@@ -77,3 +71,12 @@ jobs:
         run: echo "${{ needs.model-build.outputs.model-hyperparameters }}"
       - name: Deploy Model
         run: echo "Deploy Model to AWS"
+
+  error-report:
+    needs: model-deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Information
+        run: |
+          echo "There was an error in the Workflow"
+          echo "${{ toJSON(github) }}"
