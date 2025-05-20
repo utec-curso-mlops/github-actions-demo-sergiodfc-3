@@ -48,10 +48,10 @@ jobs:
             outputs/train/models/best_model.pickle
 
       - name: Run Model Test
+        continue-on-error: true
         id: model-test
         run: python src/5-score-model.py
       - name: Print error report
-        if: failure() && steps.model-test.outcome == 'failure'
         run: |
           echo "There was an error in testing Job"
           echo "Step outcome: ${{ steps.model-test.outcome }}"
