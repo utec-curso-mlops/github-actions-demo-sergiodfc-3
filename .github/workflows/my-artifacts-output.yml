@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - 'master'
+    paths:
+      - '**.py'
 jobs:
   model-build:
     runs-on: ubuntu-latest
