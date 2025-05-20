@@ -26,5 +26,10 @@ jobs:
     needs: model-ci
     runs-on: ubuntu-latest
     steps:
+      - name: Connect to Database
+        run: |
+          echo "Connecting to Database $DB_NAME:$PORT at server $DB_ADDRESS"
+          echo "DB_USERNAME: ${{ env.DB_USERNAME }}"
+          echo "DB_PASSWORD: ${{ env.DB_PASSWORD }}"
       - name: Deploy Model
         run: echo "Deploy Model in CD Pipeline"
