@@ -55,5 +55,7 @@ jobs:
           name: best-model-files
       - name: Output contents
         run: ls
+      - name: Output Model Hyperparameters
+        run: echo "{{ needs.model-build.outputs.model-hyperparameters }}"
       - name: Deploy Model
         run: echo "Deploy Model to AWS"
