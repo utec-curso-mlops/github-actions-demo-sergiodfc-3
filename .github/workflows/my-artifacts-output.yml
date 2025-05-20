@@ -24,7 +24,7 @@ jobs:
       - name: Prepare Dataset Test
         run: python src/2-prepare-dataset-test.py
       - name: Train Evaluate Model
-        run: python src/3-train-evaluate-model.py
+        run: python src/3-train-evaluate-models.py
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
