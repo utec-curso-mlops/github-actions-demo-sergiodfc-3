@@ -32,8 +32,9 @@ jobs:
       - name: Publish Output Model Hyperparameters
         id: publish-output
         run: |          
-          csvtool format model-hyperparameters='%(1)\n' outputs/train/metrics/train_cv_model_results_best_model.csv >> $GITHUB_OUTPUT
-          echo $model-hyperparameters
+          temp_var=$(csvtool format '%(1)\n' train_cv_model_results_best_model.csv | csvtool -u TAB drop 1 - )
+          echo $temp_var
+          echo "model-hyperparameters=$temp_var" >> $GITHUB_OUTPUT
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
