@@ -27,6 +27,8 @@ jobs:
         run: python src/2-prepare-dataset-test.py
       - name: Train Evaluate Model
         run: python src/3-train-evaluate-models.py
+      - name: Select Best Model
+        run: python src/4-select-best-model.py
       - name : Install Dependency Bash Tools
         run: sudo apt-get install csvtool
       - name: Publish Output Model Hyperparameters
