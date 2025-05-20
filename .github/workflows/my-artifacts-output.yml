@@ -33,11 +33,17 @@ jobs:
             outputs/preprocess/
             outputs/train/metrics/
             outputs/train/feature_importance.csv
-            outputs/models/best_model.pickle
+            outputs/train/models/best_model.pickle
 
   model-deployment:
     needs: model-build
     runs-on: ubuntu-latest
     steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: best-model-files
+      - name: Output contents
+        run: ls
       - name: Deploy Model
         run: echo "Deploy Model to AWS"
