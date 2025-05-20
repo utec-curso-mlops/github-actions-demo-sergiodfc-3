@@ -45,6 +45,12 @@ jobs:
             outputs/train/feature_importance.csv
             outputs/train/models/best_model.pickle
 
+      - name: testing
+        run: |
+          cd outputs/train
+          ls
+          cd models
+          ls
       - name: Run Model Test
         id: model-test
         run: python src/5-score-model.py
