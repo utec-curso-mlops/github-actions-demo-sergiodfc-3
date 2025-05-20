@@ -31,7 +31,7 @@ jobs:
         id: publish-output
         run: |
           sudo apt-get install csvtool
-          csvtool format model-hyperparameters={'%(1)\n'} outputs/train/metrics/train_cv_model_results_best_model.csv >> $GITHUB_OUTPUT
+          csvtool format model-hyperparameters='%(1)\n' outputs/train/metrics/train_cv_model_results_best_model.csv >> $GITHUB_OUTPUT
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
