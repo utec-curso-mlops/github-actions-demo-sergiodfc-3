@@ -27,7 +27,7 @@ jobs:
         run: python src/3-train-evaluate-models.py
       - name: Publish Model Hiperparameters
         run: |
-          awk -F "\"*,\"*" '{print $1}' outputs/train/metrics/train_cv_model_results_best_model.csv
+          awk -F "\"*,\"*" '{print $1$2$3$4}' outputs/train/metrics/train_cv_model_results_best_model.csv
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
